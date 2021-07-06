@@ -15,15 +15,31 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var redSlider: UISlider!
+
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var greenSlider: UISlider!
+    
+    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var blueSlider: UISlider!
+
+     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        redLabel.text = "0"
+        greenLabel.text = "0"
+        blueLabel.text = "0"
+        
+    }
+    
     @IBAction func UIredSlider(_ sender: UISlider) {
         let redValue = sender.value
         redLabel.text = "\(redValue)"
         redColorValue = redValue
         displayColor()
     }
-  
-    @IBOutlet weak var greenLabel: UILabel!
-    @IBOutlet weak var greenSlider: UISlider!
+    
     @IBAction func UIgreenSlider(_ sender: UISlider) {
         let greenValue = sender.value
         greenLabel.text = "\(greenValue)"
@@ -31,8 +47,6 @@ class ViewController: UIViewController {
         displayColor()
     }
     
-    @IBOutlet weak var blueLabel: UILabel!
-    @IBOutlet weak var blueSlider: UISlider!
     @IBAction func UIblueSlider(_ sender: UISlider) {
         let blueValue = sender.value
         blueLabel.text = "\(blueValue)"
@@ -54,22 +68,6 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = color
     }
-    
-    
-    
- 
-   
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        redLabel.text = "0"
-        greenLabel.text = "0"
-        blueLabel.text = "0"
-        
-    }
-
 
 }
 
