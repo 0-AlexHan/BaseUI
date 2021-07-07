@@ -29,21 +29,21 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func UIredSlider(_ sender: UISlider) {
+    @IBAction func redSliderDidChangeValue(_ sender: UISlider) {
         let redValue = sender.value
         redLabel.text = "\(redValue)"
         redColorValue = redValue
         displayColor()
     }
     
-    @IBAction func UIgreenSlider(_ sender: UISlider) {
+    @IBAction func greenSliderDidChangeValue(_ sender: UISlider) {
         let greenValue = sender.value
         greenLabel.text = "\(greenValue)"
         greenColorValue = greenValue
         displayColor()
     }
     
-    @IBAction func UIblueSlider(_ sender: UISlider) {
+    @IBAction func blueSliderDidChangeValue(_ sender: UISlider) {
         let blueValue = sender.value
         blueLabel.text = "\(blueValue)"
         blueColorValue = blueValue

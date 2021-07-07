@@ -19,19 +19,19 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LpO-rc-FK4">
                                 <rect key="frame" x="58" y="79" width="298" height="31"/>
                                 <connections>
-                                    <action selector="UIredSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="RR2-bv-7mf"/>
+                                    <action selector="redSliderDidChangeValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="TnL-1s-fhQ"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="oey-hZ-xCu">
                                 <rect key="frame" x="58" y="160" width="298" height="31"/>
                                 <connections>
-                                    <action selector="UIgreenSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Bbt-V5-Qh4"/>
+                                    <action selector="greenSliderDidChangeValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="y2l-n4-N3b"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cTO-kn-etc">
                                 <rect key="frame" x="58" y="241" width="298" height="31"/>
                                 <connections>
-                                    <action selector="UIblueSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="mZN-E1-D1U"/>
+                                    <action selector="blueSliderDidChangeValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="dHq-Dj-0Qx"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWo-Og-Nfd">
