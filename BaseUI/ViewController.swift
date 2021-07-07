@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         redLabel.text = "0"
         greenLabel.text = "0"
         blueLabel.text = "0"
+        displayColor()
         
     }
     
