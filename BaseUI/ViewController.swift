@@ -13,57 +13,125 @@ class ViewController: UIViewController {
     var greenColorValue: Float = 0
     var blueColorValue: Float = 0
     
-    @IBOutlet private weak var redLabel: UILabel!
-    @IBOutlet private weak var greenLabel: UILabel!
-    @IBOutlet private weak var blueLabel: UILabel!
+    
+    @IBOutlet private weak var redTextField: UITextField!
+    @IBOutlet private weak var greenTextField: UITextField!
+    @IBOutlet private weak var blueTextField: UITextField!
 
-     
+    @IBOutlet private weak var redSlider: UISlider!
+    @IBOutlet private weak var greenSlider: UISlider!
+    @IBOutlet private weak var blueSlider: UISlider!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        redLabel.text = "0"
-        greenLabel.text = "0"
-        blueLabel.text = "0"
-        displayColor()
+        self.redTextField.delegate = self
+        self.greenTextField.delegate = self
+        self.blueTextField.delegate = self
+
+            displayColor()
+    }
+      
+    func displayColor() {
+        let red = CGFloat(redColorValue / 255.0)
+        let green = CGFloat(greenColorValue / 255.0)
+        let blue = CGFloat(blueColorValue / 255.0)
+                let color = UIColor(
+                    red: red,
+                    green: green,
+                    blue: blue,
+                    alpha: 1.0
+                )
         
+        self.view.backgroundColor = color
     }
     
-    @IBAction func UIredSlider(_ sender: UISlider) {
+    @IBAction func redSliderDidChangeValue(_ sender: UISlider) {  // переименовать в дид
         let redValue = sender.value
-        redLabel.text = "\(redValue)"
+        redTextField.text = String(Int(floor(redValue)))
         redColorValue = redValue
         displayColor()
     }
-    
-    @IBAction func UIgreenSlider(_ sender: UISlider) {
+
+    @IBAction func greenSliderDidChangeValue(_ sender: UISlider) {
         let greenValue = sender.value
-        greenLabel.text = "\(greenValue)"
+        greenTextField.text = String(Int(floor(greenValue)))
         greenColorValue = greenValue
         displayColor()
     }
-    
-    @IBAction func UIblueSlider(_ sender: UISlider) {
+
+    @IBAction func blueSliderDidChangeValue(_ sender: UISlider) {
         let blueValue = sender.value
-        blueLabel.text = "\(blueValue)"
+        blueTextField.text = String(Int(floor(blueValue)))
         blueColorValue = blueValue
         displayColor()
     }
     
-   
-    func displayColor(){
-        let red = CGFloat(redColorValue)
-        let green = CGFloat(greenColorValue)
-        let blue = CGFloat(blueColorValue)
-        let color = UIColor(
-            red: red,
-            green: green,
-            blue: blue,
-            alpha: 1.0
-        )
-        
-        self.view.backgroundColor = color
-    }
+}
 
+extension ViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == redTextField ||
+            textField == greenTextField ||
+            textField == blueTextField {
+            
+            textField.resignFirstResponder()
+            
+            return false
+        }
+        
+        return true
+    }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+
+        guard let text = textField.text,
+              let allowedValue = Int(text + string) else {
+            return false
+        }
+
+        if allowedValue > UInt8.max {
+            return false
+        }
+        
+        return allowedCharacters.isSuperset(of: characterSet)
+    }
+    
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+
+        
+        guard let textValue = textField.text,
+              let floatValue = Float(textValue) else {
+            return
+        }
+
+        if textField == redTextField {
+            redSlider.setValue(floatValue, animated: true)
+            redColorValue = floatValue
+        }
+
+        if textField == greenTextField {
+            greenSlider.setValue(floatValue, animated: true)
+            greenColorValue = floatValue
+        }
+
+        if textField == blueTextField {
+            blueSlider.setValue(floatValue, animated: true)
+            blueColorValue = floatValue
+        }
+
+        displayColor()
+    }
+      
 }
 
