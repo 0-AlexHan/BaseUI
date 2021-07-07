@@ -102,11 +102,8 @@
                     </view>
                     <connections>
                         <outlet property="blueLabel" destination="3Zd-xh-wDz" id="Qs0-PS-LB1"/>
-                        <outlet property="blueSlider" destination="cTO-kn-etc" id="MIg-R4-DZ6"/>
                         <outlet property="greenLabel" destination="4uA-LU-AnX" id="EQl-6c-seM"/>
-                        <outlet property="greenSlider" destination="oey-hZ-xCu" id="mKb-1M-AOm"/>
                         <outlet property="redLabel" destination="Qry-rH-qSm" id="KZ5-SA-ktj"/>
-                        <outlet property="redSlider" destination="LpO-rc-FK4" id="yDX-kc-N7v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
