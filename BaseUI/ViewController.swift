@@ -35,9 +35,10 @@ class ViewController: UIViewController {
     }
       
     func displayColor() {
-        let red = CGFloat(redColorValue / 255.0)
-        let green = CGFloat(greenColorValue / 255.0)
-        let blue = CGFloat(blueColorValue / 255.0)
+        let countCGFloat: Float = 255.0
+        let red = CGFloat(redColorValue / countCGFloat)
+        let green = CGFloat(greenColorValue / countCGFloat)
+        let blue = CGFloat(blueColorValue / countCGFloat)
                 let color = UIColor(
                     red: red,
                     green: green,
